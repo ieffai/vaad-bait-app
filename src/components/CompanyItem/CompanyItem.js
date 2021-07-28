@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Card, Col } from 'react-bootstrap';
 import { COMPANY_ROUTE } from '../../constants/constants';
 import { setCurrentCompany } from '../../redux/reducers/companyReducer';
+import { setNavbar } from '../../redux/reducers/appReducer';
+
 const CompanyItem = ({ company }) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -11,6 +13,7 @@ const CompanyItem = ({ company }) => {
   function openCompanyHandler() {
     history.push(COMPANY_ROUTE + '/' + company.id);
     dispatch(setCurrentCompany(company));
+    dispatch(setNavbar('street'));
   }
   return (
     <div>
