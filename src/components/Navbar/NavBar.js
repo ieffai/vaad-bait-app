@@ -43,23 +43,23 @@ const NavBar = () => {
             </Button>
           </Nav>
         )}
-        {navBarView === 'street' && (
+        {navBarView === 'address' && (
           <Nav className="ml-auto" style={{ color: 'white' }}>
             <Button className="mr-3" variant={'outline-light'} onClick={addCompanies}>
-              Add street
+              Add address
             </Button>
             <Button variant={'outline-light'} onClick={delCompanies}>
-              Delete street
+              Delete address
             </Button>
           </Nav>
         )}
-        {navBarView === 'houses' && (
+        {navBarView === 'client' && (
           <Nav className="ml-auto" style={{ color: 'white' }}>
             <Button className="mr-3" variant={'outline-light'} onClick={addCompanies}>
-              Add house
+              Add client
             </Button>
             <Button variant={'outline-light'} onClick={delCompanies}>
-              Delete house
+              Delete client
             </Button>
           </Nav>
         )}

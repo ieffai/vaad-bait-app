@@ -8,7 +8,7 @@ function App() {
   const loading = useSelector((state) => state.app.loader);
 
   if (loading) {
-    return <Spinner animation={'grow'} />;
+    return <Spinner animation={'grow'} variant={'success'} />;
   }
   return (
     <BrowserRouter>

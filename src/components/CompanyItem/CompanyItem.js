@@ -13,16 +13,17 @@ const CompanyItem = ({ company }) => {
   function openCompanyHandler() {
     history.push(COMPANY_ROUTE + '/' + company.id);
     dispatch(setCurrentCompany(company));
-    dispatch(setNavbar('street'));
+    dispatch(setNavbar('address'));
   }
   return (
     <div>
       <Col className="mt-3" onClick={openCompanyHandler}>
         <Card border={'success'}>
-          <div className="text-black-50 mt-1 justify-content-between align-items-center">
+          <div
+            className="text-black-50 mt-1 justify-content-between align-items-center"
+            style={{ cursor: 'pointer' }}>
             {company.name}
           </div>
-          <div className="d-flex align-items-center">{company.name}</div>
         </Card>
       </Col>
     </div>

@@ -1,5 +1,5 @@
-import { Home, CompanyPage, StreetPage } from './pages';
-import { MAIN_ROUTE, COMPANY_ROUTE, STREET_ROUTE } from './constants/constants';
+import { Home, CompanyPage, ClientPage } from './pages';
+import { MAIN_ROUTE, COMPANY_ROUTE, CLIENT_ROUTE } from './constants/constants';
 
 export const publicRoutes = [
   {
@@ -11,7 +11,7 @@ export const publicRoutes = [
     Component: CompanyPage,
   },
   {
-    path: STREET_ROUTE + '/:id',
-    Component: StreetPage,
+    path: CLIENT_ROUTE + '/:id',
+    Component: ClientPage,
   },
 ];

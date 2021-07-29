@@ -3,12 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import companyReducer from './companyReducer';
-import addressReducer from './addressReducer';
+import clientReducer from './clientReducer';
 import appReducer from './appReducer';
 
 const rootReducer = combineReducers({
   company: companyReducer,
-  address: addressReducer,
+  client: clientReducer,
   app: appReducer,
 });
 
