@@ -1,13 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Container, Button, Nav } from 'react-bootstrap';
+import { setNavbar } from '../../redux/reducers/appReducer';
 
 import { MAIN_ROUTE } from '../../constants/constants';
 import './navbar.scss';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const navBarView = useSelector((state) => state.app.navbar);
+
+  function navbarHandler() {
+    dispatch(setNavbar('company'));
+  }
   function addCompanies() {
     console.log('company added');
   }
@@ -18,7 +24,11 @@ const NavBar = () => {
   return (
     <Navbar variant="dark">
       <Container>
-        <NavLink className="navbar__brand" to={MAIN_ROUTE} style={{ color: 'white' }}>
+        <NavLink
+          className="navbar__brand"
+          to={MAIN_ROUTE}
+          style={{ color: 'white' }}
+          onClick={navbarHandler}>
           {' '}
           Dispex task{' '}
         </NavLink>
