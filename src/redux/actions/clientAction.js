@@ -10,26 +10,37 @@ export function getClients(companyId) {
         },
       });
       const data = response.data;
-      const streets = data.reduce(
-        (result, { streetId, streetName, houseId, building, clients }) => {
-          let target = result.find((row) => row.streetId === streetId);
-          let house = {
-            id: houseId,
-            building: building,
-          };
-          if (!target) {
-            target = { streetId, name: streetName, houses: [], clients };
-            target.houses.push(house);
-            target.clients.push(clients);
-            result.push(target);
-          }
-          return result;
-        },
-        [],
-      );
+      const streets = data.reduce((res, { streetId, streetName, houseId, building, clients }) => {
+        let target = res.find((row) => row.streetId === streetId);
+        let house = {
+          id: houseId,
+          building: building,
+        };
+
+        if (!target) {
+          target = { streetId, name: streetName, houses: [], clients };
+          target.houses.push(house);
+          res.push(target);
+        }
+        return res;
+      }, []);
       dispatch(setStreets(streets));
     } catch (error) {
       console.log(error);
     }
+  };
+}
+
+export function getLivers(phoneNumber) {
+  return async (dispatch) => {
+    try {
+      const response = await $host.get(`/HousingStock/client`, {
+        params: {
+          phoneNumber,
+        },
+      });
+      const data = response;
+      console.log(data);
+    } catch (error) {}
   };
 }

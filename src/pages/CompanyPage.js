@@ -6,6 +6,7 @@ import { getClients } from '../redux/actions/clientAction';
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { showLoader, hideLoader } from '../redux/reducers/appReducer';
+import { ClientItem } from '../components';
 
 const CompanyPage = () => {
   const history = useHistory();
@@ -31,25 +32,9 @@ const CompanyPage = () => {
           </Button>
         </Col>
         <Col md={5}>
-          <ul>
-            {streets.map((street, index) => (
-              <li key={index}>
-                {street.name}
-                <ul>
-                  {street.houses.map((house) => (
-                    <li
-                      style={{ cursor: 'pointer' }}
-                      key={house.building}
-                      id={house.id}
-                      onClick={(e) => history.push(CLIENT_ROUTE + '/' + e.target.id)}>
-                      {' '}
-                      House {house.building}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
+          {streets.map((street) => (
+            <ClientItem key={street.streetId} street={street} />
+          ))}
         </Col>
       </Row>
     </Container>

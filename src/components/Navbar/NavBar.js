@@ -53,7 +53,7 @@ const NavBar = () => {
             </Button>
           </Nav>
         )}
-        {navBarView === 'client' && (
+        {navBarView === 'house' && (
           <Nav className="ml-auto" style={{ color: 'white' }}>
             <Button className="mr-3" variant={'outline-light'} onClick={addCompanies}>
               Add client
